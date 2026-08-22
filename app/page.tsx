@@ -33,7 +33,8 @@ export default function Home() {
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative z-10 bg-transparent py-32 md:py-48 max-w-7xl mx-auto px-6">          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+        <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center items-start max-w-7xl mx-auto px-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
             Sistemas Sólidos. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">
               Soluciones Inteligentes.
@@ -42,7 +43,7 @@ export default function Home() {
           <p className="text-lg md:text-xl max-w-2xl text-zinc-400 mb-10 leading-relaxed">
             Páginas Web, Bases de Datos y Automatización de Procesos para pequeñas y medianas empresas.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto z-10">
             <Link href="#contacto" className="bg-emerald-500 text-zinc-950 font-bold px-8 py-4 rounded-sm text-center hover:bg-emerald-400 transition-colors">
               Agendar Análisis
             </Link>
@@ -53,8 +54,14 @@ export default function Home() {
         </section>
 
         {/* SERVICES SECTION */}
-        <section id="servicios" className="relative z-20 bg-zinc-950 border-t border-zinc-800 py-24">          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-white mb-16 text-center tracking-wide">NUESTRO ENFOQUE</h2>
+        <section id="servicios" className="relative z-20 bg-zinc-950 border-t border-zinc-800 py-24">          
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-white mb-16 text-center tracking-wide">NUESTROS SERVICIOS 
+              <div className="relative mx-auto mt-4 w-24">
+                <div className="absolute inset-0 bg-emerald-500 blur-sm opacity-80"></div>
+                <div className="relative h-[2px] w-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
+              </div>
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               
               {/* Tarjeta 1 */}
@@ -71,7 +78,7 @@ export default function Home() {
                 <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center mb-6 text-emerald-500 font-bold text-xl border rounded-sm">02</div>
                 <h3 className="text-xl font-bold text-white mb-4">Bases de Datos Sólidas</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Arquitectura relacional y no relacional (MongoDB, SQL). Estructuras adaptables, seguras y diseñadas a la medida del volumen de tu información.
+                  Si todavìa manejas tu información en Excel probablemente necesites una base de datos. Estructuras adaptables, seguras y diseñadas a la medida del volumen de tu información.
                 </p>
               </div>
 
@@ -89,7 +96,12 @@ export default function Home() {
         </section>
 
         {/* METODOLOGIA */}
-        <section id="metodologia" className="relative z-10 bg-zinc-950/70 backdrop-blur-sm py-24 border-t border-zinc-800">            <h2 className="text-3xl font-bold text-white mb-12 tracking-wide">METODOLOGÍA DE TRABAJO</h2>
+        <section id="metodologia" className="relative z-10 bg-zinc-950/70 backdrop-blur-sm py-24 px-20 border-t border-zinc-800">            
+          <h2 className="text-3xl font-bold text-white mb-12 tracking-wide">METODOLOGÍA DE TRABAJO</h2>
+          <div className="relative mx-auto mt-4 w-24">
+                <div className="absolute inset-0 bg-emerald-500 blur-sm opacity-80"></div>
+                <div className="relative h-[2px] w-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
+              </div>
             <div className="space-y-6">
               <div className="flex gap-6 items-start">
                 <span className="text-emerald-500 font-mono">01.</span>
@@ -117,7 +129,8 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="relative z-20 bg-zinc-950 border-t border-zinc-900 py-12">        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="relative z-20 bg-zinc-950 border-t border-zinc-900 py-12">        
+        <div id="contacto" className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <span className="text-white font-bold tracking-widest text-lg block">
               METAL BRAIN <span className="text-emerald-500 font-light">SOLUTIONS</span>
