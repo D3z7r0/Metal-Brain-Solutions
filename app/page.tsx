@@ -1,160 +1,236 @@
-import React from 'react';
-import Link from 'next/link';
+'use client';
+
+import React, { useState, useEffect } from 'react';import Link from 'next/link';
 import Image from 'next/image';
-import BackgroundCanvas from '@/components/BackgroundCanvas';
-import { FaWhatsapp } from 'react-icons/fa'; 
+import dynamic from 'next/dynamic';
+import { FaWhatsapp, FaSearch, FaCode, FaShieldAlt, FaArrowUp } from 'react-icons/fa';
 import { PiMicrosoftOutlookLogoFill } from "react-icons/pi";
+import styles from './page.module.css';
 
-
+const BackgroundCanvas = dynamic(() => import('@/components/BackgroundCanvas'), {
+  ssr: false,
+});
 
 export default function Home() {
+  // -- SCROLL --
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Mostrar botón "Volver arriba" después de 400px
+      setShowBackToTop(currentScrollY > 400);
+
+      // Ocultar/Mostrar Header
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsHeaderVisible(false); // Scroll hacia abajo: Ocultar
+      } else {
+        setIsHeaderVisible(true);  // Scroll hacia arriba: Mostrar
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-      <div className="relative min-h-screen bg-zinc-950 text-zinc-300">      
+    <div className={styles.pageWrapper}>
+      
+      {/* CAPA 0: EL FONDO 3D */}
       <BackgroundCanvas />
 
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      {/* HEADER LIGHT GLASS */}
+      <header className={`${styles.glassHeader} transition-transform duration-300 ease-in-out ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
+
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Image
               src="/Logo_MBS.png"
               width={100}
               height={100}
               alt="Logo_MBS"
-              className="h-auto w-auto invert"
+              className="h-auto w-auto" 
+              priority
             />
           </div>
-          <nav className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
-            <Link href="#servicios" className="hover:text-emerald-400 transition-colors">Servicios</Link>
-            <Link href="#metodologia" className="hover:text-emerald-400 transition-colors">Metodología</Link>
-            <Link href="#contacto" className="hover:text-emerald-400 transition-colors">Contacto</Link>
+          <nav className="hidden md:flex gap-8 text-sm font-semibold tracking-wide text-slate-600">
+            <Link href="#servicios" className="hover:text-blue-500 transition-colors">Servicios</Link>
+            <Link href="#metodologia" className="hover:text-purple-500 transition-colors">Metodología</Link>
+            <Link href="#contacto" className="hover:text-orange-500 transition-colors">Contacto</Link>
           </nav>
         </div>
       </header>
 
       <main>
         {/* HERO SECTION */}
-        <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center items-start max-w-7xl mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+        <section className="relative z-10 min-h-[calc(100vh-80px)] flex flex-col justify-center items-start max-w-7xl mx-auto px-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
             Sistemas Sólidos. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">
+            <span className={styles.textGradient}>
               Soluciones Inteligentes.
             </span>
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl text-zinc-400 mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl max-w-2xl text-slate-500 mb-10 leading-relaxed font-medium">
             Páginas Web, Bases de Datos y Automatización de Procesos para pequeñas y medianas empresas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto z-10">
-            <Link href="#contacto" className="bg-emerald-500 text-zinc-950 font-bold px-8 py-4 rounded-sm text-center hover:bg-emerald-400 transition-colors">
+            <Link href="#contacto" className={styles.btnPrimary}>
               Agendar Análisis
             </Link>
-            <Link href="#servicios" className="border border-zinc-700 text-white font-medium px-8 py-4 rounded-sm text-center hover:bg-zinc-800 transition-colors">
+            <Link href="#servicios" className={styles.btnGlass}>
               Ver Servicios
             </Link>
           </div>
         </section>
 
         {/* SERVICES SECTION */}
-        <section id="servicios" className="relative z-20 bg-zinc-950 border-t border-zinc-800 py-24">          
+        <section id="servicios" className="relative z-20 py-24">          
           <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-white mb-16 text-center tracking-wide">NUESTROS SERVICIOS 
-              <div className="relative mx-auto mt-4 w-24">
-                <div className="absolute inset-0 bg-emerald-500 blur-sm opacity-80"></div>
-                <div className="relative h-[2px] w-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
-              </div>
-            </h2>
+            
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-slate-900 tracking-wide">NUESTROS SERVICIOS</h2>
+              <div className={styles.glowDivider}></div>
+            </div>
+
             <div className="grid md:grid-cols-3 gap-8">
-              
               {/* Tarjeta 1 */}
-              <div className="bg-zinc-950 p-8 border border-zinc-800 hover:border-emerald-500/50 transition-colors rounded-sm">
-                <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center mb-6 text-emerald-500 font-bold text-xl border rounded-sm">01</div>
-                <h3 className="text-xl font-bold text-white mb-4">Páginas Web</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  Desde gestores dinámicos en WordPress para marketing | SEO | GEO | Buisiness Inteligence con Google Analytics, hasta aplicaciones web robustas de alto rendimiento con Next.js preparadas para escala corporativa.
+              <div className={styles.glassCard}>
+                <div className={styles.glassIcon}>01</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Páginas Web</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Desde gestores dinámicos en WordPress para marketing, SEO, GEO y Business Intelligence con Google Analytics, hasta aplicaciones web robustas de alto rendimiento con Next.js.
                 </p>
+                <div className="flex justify-end">
+                  <button className={styles.btnSecondary}>Ver servicios</button>
+                </div>
               </div>
 
               {/* Tarjeta 2 */}
-              <div className="bg-zinc-950 p-8 border border-zinc-800 hover:border-emerald-500/50 transition-colors rounded-sm">
-                <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center mb-6 text-emerald-500 font-bold text-xl border rounded-sm">02</div>
-                <h3 className="text-xl font-bold text-white mb-4">Bases de Datos Sólidas</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  Si todavìa manejas tu información en Excel probablemente necesites una base de datos. Estructuras adaptables, seguras y diseñadas a la medida del volumen de tu información.
+              <div className={styles.glassCard}>
+                <div className={styles.glassIcon}>02</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Bases de Datos Sólidas</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Si todavía manejas tu información en Excel probablemente necesites una base de datos. Estructuras adaptables, seguras y diseñadas a la medida del volumen de tu información.
                 </p>
               </div>
 
               {/* Tarjeta 3 */}
-              <div className="bg-zinc-950 p-8 border border-zinc-800 hover:border-emerald-500/50 transition-colors rounded-sm">
-                <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center mb-6 text-emerald-500 font-bold text-xl border rounded-sm">03</div>
-                <h3 className="text-xl font-bold text-white mb-4">Automatización</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  Análisis de procesos para identificar cuales se pueden automatizar (Chat Bots, Alertas, Flujo de Trabajo)
+              <div className={styles.glassCard}>
+                <div className={styles.glassIcon}>03</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Automatización</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Análisis de procesos para identificar cuáles se pueden automatizar eficientemente, implementando herramientas como Chat Bots, Alertas y Flujos de Trabajo automatizados.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* METODOLOGÍA */}
+        <section id="metodologia" className="relative z-10 py-24 px-6">            
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-slate-900 tracking-wide">METODOLOGÍA DE TRABAJO</h2>
+              <div className={styles.glowDivider}></div>
+            </div>
+
+            <div className={styles.timelineContainer}>
+              
+              {/* Paso 1 */}
+              <div className={styles.timelineStep}>
+                <div className={styles.timelineIconWrapper}>
+                  <FaSearch />
+                </div>
+                <div className={styles.glassCard}>
+                  <span className="text-orange-500 font-mono text-sm tracking-widest font-bold block mb-1">FASE 01</span>
+                  <h4 className="text-xl text-slate-900 font-bold">Descubrimiento & Lógica</h4>
+                  <p className="text-slate-500 text-sm mt-2 leading-relaxed font-medium">
+                    Mapeo de necesidades y diseño de la arquitectura de la solución mano a mano con el cliente.
+                  </p>
+                </div>
+              </div>
+
+              {/* Paso 2 */}
+              <div className={styles.timelineStep}>
+                <div className={styles.timelineIconWrapper}>
+                  <FaCode />
+                </div>
+                <div className={styles.glassCard}>
+                  <span className="text-purple-500 font-mono text-sm tracking-widest font-bold block mb-1">FASE 02</span>
+                  <h4 className="text-xl text-slate-900 font-bold">Desarrollo e Implementación</h4>
+                  <p className="text-slate-500 text-sm mt-2 leading-relaxed font-medium">
+                    Escritura de código limpio, modular y estructurado, listo para desarrollo continuo y altamente mantenible.
+                  </p>
+                </div>
+              </div>
+
+              {/* Paso 3 */}
+              <div className={styles.timelineStep}>
+                <div className={styles.timelineIconWrapper}>
+                  <FaShieldAlt />
+                </div>
+                <div className={styles.glassCard}>
+                  <span className="text-blue-500 font-mono text-sm tracking-widest font-bold block mb-1">FASE 03</span>
+                  <h4 className="text-xl text-slate-900 font-bold">Aseguramiento de Calidad (QA)</h4>
+                  <p className="text-slate-500 text-sm mt-2 leading-relaxed font-medium">
+                    Pruebas exhaustivas de estrés, revisión de interfaz y bases de datos antes de salir a producción.
+                  </p>
+                </div>
               </div>
 
             </div>
           </div>
         </section>
-
-        {/* METODOLOGIA */}
-        <section id="metodologia" className="relative z-10 bg-zinc-950/70 backdrop-blur-sm py-24 px-20 border-t border-zinc-800">            
-          <h2 className="text-3xl font-bold text-white mb-12 tracking-wide">METODOLOGÍA DE TRABAJO</h2>
-          <div className="relative mx-auto mt-4 w-24">
-                <div className="absolute inset-0 bg-emerald-500 blur-sm opacity-80"></div>
-                <div className="relative h-[2px] w-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
-              </div>
-            <div className="space-y-6">
-              <div className="flex gap-6 items-start">
-                <span className="text-emerald-500 font-mono">01.</span>
-                <div>
-                  <h4 className="text-white font-bold">Descubrimiento & Lógica</h4>
-                  <p className="text-zinc-400 text-sm mt-1">Mapeo de necesidades y diseño de la arquitectura de la solución mano a mano del cliente</p>
-                </div>
-              </div>
-              <div className="flex gap-6 items-start">
-                <span className="text-emerald-500 font-mono">02.</span>
-                <div>
-                  <h4 className="text-white font-bold">Desarrollo</h4>
-                  <p className="text-zinc-400 text-sm mt-1">Escritura de código limpio, modular y estructurado listo para desarrollo continuo y mantenible.</p>
-                </div>
-              </div>
-              <div className="flex gap-6 items-start">
-                <span className="text-emerald-500 font-mono">03.</span>
-                <div>
-                  <h4 className="text-white font-bold">Aseguramiento de Calidad (QA)</h4>
-                  <p className="text-zinc-400 text-sm mt-1">Pruebas de estrés, interfaz y bases de datos antes de salir a producción.</p>
-                </div>
-              </div>
-          </div>
-        </section>
       </main>
 
       {/* FOOTER */}
-      <footer className="relative z-20 bg-zinc-950 border-t border-zinc-900 py-12">        
+      <footer className="relative z-20 bg-white/70 backdrop-blur-md border-t border-slate-200 py-12 mt-12 shadow-sm">        
         <div id="contacto" className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <span className="text-white font-bold tracking-widest text-lg block">
-              METAL BRAIN <span className="text-emerald-500 font-light">SOLUTIONS</span>
+            <span className="text-slate-900 font-bold tracking-widest text-lg block">
+              METAL BRAIN <span className="text-blue-500 font-light">SOLUTIONS</span>
             </span>
-            <p className="text-zinc-500 text-xs mt-2">Optimizando el futuro de tu negocio.</p>
+            <p className="text-slate-500 text-xs mt-2 font-medium">Optimizando el futuro de tu negocio.</p>
           </div>
-          <div className="text-zinc-400 text-sm flex gap-6">
+          <div className="text-slate-600 text-sm flex flex-col sm:flex-row gap-4">
             <a 
               href="https://wa.me/525543079745?text=Hola%20MBS,%20me%20interesa%20una%20automatización" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-emerald-500 text-zinc-950 font-bold px-8 py-4 rounded-sm hover:bg-emerald-400 transition-colors">
-              <FaWhatsapp className="text-2xl" />
-              Contactar por WhatsApp
+              className={styles.btnPrimary}>
+              <FaWhatsapp className="text-xl" />
+              WhatsApp
             </a>
             <a 
               href="mailto:danielguilera@hotmail.com" 
-              className="inline-flex items-center justify-center gap-2 bg-[#0078D4] hover:bg-[#106EBE] text-white font-bold px-6 py-3 rounded-sm transition-colors">             
-              <PiMicrosoftOutlookLogoFill className="text-2xl" />
-              danielguilera@hotmail.com
+              className={styles.btnGlass}>             
+              <PiMicrosoftOutlookLogoFill className="text-xl text-blue-600" />
+              Outlook
             </a>
           </div>
         </div>
       </footer>
+
+      <button 
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 z-50 p-4 rounded-full bg-blue-500 text-white shadow-lg transition-all duration-300 ease-in-out hover:bg-blue-600 hover:shadow-blue-500/50 hover:-translate-y-1 ${
+          showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
+        aria-label="Volver arriba"
+      >
+        <FaArrowUp />
+      </button>
     </div>
   );
 }

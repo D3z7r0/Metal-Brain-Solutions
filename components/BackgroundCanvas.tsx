@@ -20,8 +20,7 @@ function RotatingCube({ position, size = 1, speed = 1 }: { position: [number, nu
       <mesh ref={meshRef} position={position}>
         <boxGeometry args={[size, size, size]} />
         {/* Opacidad al 80% y color brillante para comprobar visibilidad */}
-        <meshBasicMaterial color="#10b981" wireframe transparent opacity={0.3} />
-      </mesh>
+        <meshBasicMaterial color="#8b5cf6" wireframe transparent opacity={0.2} />      </mesh>
     </Float>
   );
 }

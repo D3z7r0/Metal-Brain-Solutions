@@ -1,0 +1,228 @@
+/* app/page.module.css */
+
+/* --- BASE & UTILITIES --- */
+.pageWrapper {
+  position: relative;
+  min-height: 100vh;
+  /* Fondo blanco perlado con sutiles gradientes radiales azul, morado y naranja de fondo */
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(circle at 15% 30%, rgba(249, 115, 22, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+  color: #334155; /* Pizarra oscuro para lectura */
+}
+
+/* Gradiente fluido: Azul -> Morado -> Naranja */
+.textGradient {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- LIGHT GLASSMORPHISM COMPONENTS --- */
+.glassHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.glassCard {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  /* Borde blanco para el reflejo superior, gris sutil abajo */
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 1), 
+    0 8px 32px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glassCard:hover {
+  border-color: rgba(139, 92, 246, 0.3); /* Morado sutil en el borde */
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 1), 
+    0 16px 48px rgba(59, 130, 246, 0.12); /* Sombra azulada expansiva */
+  transform: translateY(-4px);
+}
+
+.glassIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: #8b5cf6; /* Icono morado */
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- BUTTONS --- */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6); /* Azul a Morado */
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 99px; /* Botones más redondeados estilo Apple */
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.btnGlass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 99px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.btnGlass:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(249, 115, 22, 0.3); /* Borde naranja al pasar mouse */
+  color: #f97316;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.3rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 99px; /* Botones más redondeados estilo Apple */
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.btnSecondary:hover {
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+
+/* --- TIMELINE (METHODOLOGY) --- */
+.timelineContainer {
+  position: relative;
+  /* Eliminamos el border-left de aquí */
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* Puedes agregar padding-left aquí si necesitas separar todo el bloque del borde en móviles */
+}
+
+/* Dibujamos la línea de conexión dinámicamente */
+.timelineContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* Si el icono mide 3rem, su centro exacto está en 1.5rem */
+  left: 1.5rem; 
+  width: 2px;
+  background: rgba(139, 92, 246, 0.2);
+  transform: translateX(-50%);
+}
+
+.timelineStep {
+  position: relative;
+  /* Espacio reservado para el icono (3rem) + margen de separación */
+  padding-left: 4.5rem; 
+}
+
+.timelineIconWrapper {
+  position: absolute;
+  /* Ahora el icono arranca desde 0, así que está anclado a la izquierda del step. La línea lo cruzará por el medio obligatoriamente */
+  left: 0; 
+  top: 0; /* Si querías bajarlo un poco respecto al texto, pon top: 4px o top: 8px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: #ffffff;
+  border: 2px solid #8b5cf6;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  color: #f97316;
+  font-size: 1.25rem;
+  z-index: 2; /* Importante para que el icono tape la línea y no al revés */
+}
+
+.glowDivider {
+  position: relative;
+  margin: 1rem auto 3rem auto;
+  width: 15rem;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(to right, transparent, #3b82f6, #8b5cf6, transparent);
+  opacity: 0.7;
+}
+
+/* --- CTA WEB SECTION --- */
+.ctaContainer {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    0 20px 50px rgba(59, 130, 246, 0.08);
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
+}
+
+/* Destello ambiental en esquina */
+.ctaGlow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
