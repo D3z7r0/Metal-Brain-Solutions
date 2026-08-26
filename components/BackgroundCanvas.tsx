@@ -27,7 +27,15 @@ function RotatingCube({ position, size = 1, speed = 1 }: { position: [number, nu
 
 export default function BackgroundCanvas() {
   return (
-    <div className="fixed inset-0 top-0 left-0 w-screen h-screen z-0 pointer-events-none">
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100vw',
+      height: '100vh',
+      zIndex: 10, /* ¡Cambio clave aquí! De -10 a 0 */
+      pointerEvents: 'none'
+    }}>
       <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
         <ambientLight intensity={1} />
         {/* Cubos centrados y grandes */}

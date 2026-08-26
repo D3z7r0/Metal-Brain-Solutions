@@ -10,6 +10,7 @@
     radial-gradient(circle at 15% 30%, rgba(249, 115, 22, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+  z-index: 0;
   color: #334155; /* Pizarra oscuro para lectura */
 }
 
@@ -75,68 +76,6 @@
   color: #8b5cf6; /* Icono morado */
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-/* --- BUTTONS --- */
-.btnPrimary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6); /* Azul a Morado */
-  color: #ffffff;
-  font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 99px; /* Botones más redondeados estilo Apple */
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-  transition: all 0.3s ease;
-}
-
-.btnPrimary:hover {
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-  transform: translateY(-2px);
-}
-
-.btnGlass {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  color: #1e293b;
-  font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 99px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-}
-
-.btnGlass:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(249, 115, 22, 0.3); /* Borde naranja al pasar mouse */
-  color: #f97316;
-}
-
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.3rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316);
-  color: #ffffff;
-  font-weight: 600;
-  padding: 0.8rem 1.8rem;
-  border-radius: 99px; /* Botones más redondeados estilo Apple */
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-  transition: all 0.3s ease;
-  animation: gradientFlow 8s ease infinite;
-}
-
-.btnSecondary:hover {
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-  transform: translateY(-2px);
 }
 
 
@@ -225,4 +164,69 @@
   background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
+}
+
+
+/* --- BUTTONS --- */
+
+.btnGlass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 99px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.btnGlass:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(249, 115, 22, 0.3); /* Borde naranja al pasar mouse */
+  color: #f97316;
+}
+
+.btnSecondary {
+  display: flexbox;
+  flex: justify-end;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.3rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #f97316);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 99px; /* Botones más redondeados estilo Apple */
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.btnSecondary:hover {
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6); /* Azul a Morado */
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 99px; /* Botones más redondeados estilo Apple */
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
 }
