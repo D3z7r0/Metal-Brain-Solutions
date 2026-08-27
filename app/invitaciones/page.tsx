@@ -101,23 +101,106 @@ export default function InvitacionesPage() {
         </div>
       </div>
 
-      {/* PRECIO Y CTA */}
-      <div className={styles.pricingSection}>
-        <h2 className="text-2xl font-bold text-slate-800">Crea una experiencia única</h2>
-        <div className={styles.priceBadge}>
-          Desde $1,300 MXN
-        </div>
-        <p className="text-slate-500 font-medium mb-2">Diseño responsivo, rápido e interactivo.</p>
+      {/* SECCIÓN DE PLANES Y PRECIOS */}
+      <div className="text-center mt-20 mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Nuestros Planes</h2>
+        <p className="text-slate-500 mt-3 font-medium">Soluciones a la medida para cada tipo de celebración.</p>
+      </div>
+
+      <div className={styles.pricingGrid}>
         
-        <a 
-          href="https://wa.me/525543079745?text=Hola,%20me%20interesa%20cotizar%20una%20invitación%20digital" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={styles.btnPrimary}
-        >
-          <FaWhatsapp className="text-2xl" />
-          Cotiza tu invitación hoy mismo
-        </a>
+        {/* PLAN 1: ESENCIAL */}
+        <div className={styles.crystalCard}>
+          <div>
+            <h3 className={styles.crystalHeader}>Esencial</h3>
+            <p className={styles.crystalText}>
+              Ideal para eventos rápidos, cumpleaños o clientes que quieren dar el salto a lo digital con lo necesario.
+            </p>
+            <ul className={styles.featureList}>
+              <li className={styles.featureItem}>Diseño responsivo optimizado para móviles.</li>
+              <li className={styles.featureItem}>Temporizador en vivo con cuenta regresiva.</li>
+              <li className={styles.featureItem}>Itinerario cronológico sencillo del evento.</li>
+              <li className={styles.featureItem}>Conexión directa con Google Maps y Waze.</li>
+              <li className={styles.featureItem}>Confirmación básica por mensaje a WhatsApp.</li>
+            </ul>
+          </div>
+          <div className={styles.crystalPriceContainer}>
+            <div className={styles.crystalPrice}>
+              <span className={styles.crystalCurrency}>$</span>850<span className={styles.crystalSuffix}>MXN</span>
+            </div>
+            <a
+            href="https://wa.me/525543079745?text=Hola%20MBS,%20me%20interesa%20la%20invitación%20Esencial"
+            target="_blank"
+            rel="noopener noreferrer">
+            <button className="w-full mt-6 bg-white border border-slate-200 text-slate-700 font-bold py-3 rounded-xl hover:border-blue-400 hover:text-blue-600 transition-colors shadow-sm">
+              Elegir Esencial
+            </button>
+          </a>
+          </div>
+        </div>
+
+        {/* PLAN 2: PREMIUM (El más vendido) */}
+        <div className={`${styles.crystalCard} border-blue-400/40 shadow-[0_20px_50px_rgba(59,130,246,0.1)] scale-105 z-10`}>
+          <div className={styles.popularBadge}>Más Solicitado</div>
+          <div>
+            <h3 className={styles.crystalHeader}>Premium</h3>
+            <p className={styles.crystalText}>
+              Perfecto para bodas y XV años. Una experiencia completa y atractiva para lucir tu evento.
+            </p>
+            <ul className={styles.featureList}>
+              <li className={styles.featureItem}>Todas las características del Plan Esencial.</li>
+              <li className={styles.featureItem}>Galería de fotos interactiva con carrusel.</li>
+              <li className={styles.featureItem}>Reproductor de música de fondo integrado.</li>
+              <li className={styles.featureItem}>Conteo de confirmaciones para un estimado de personas que asistirán.</li>
+              <li className={styles.featureItem}>Sección de Mesa de Regalos (Link Amazon, Liverpool, etc) y Código de Vestimenta.</li>
+            </ul>
+          </div>
+          <div className={styles.crystalPriceContainer}>
+            <div className={styles.crystalPrice}>
+              <span className={styles.crystalCurrency}>$</span>1,300<span className={styles.crystalSuffix}>MXN</span>
+            </div>
+            <a
+            href="https://wa.me/525543079745?text=Hola%20MBS,%20me%20interesa%20la%20invitación%20Premium"
+            target="_blank"
+            rel="noopener noreferrer">
+            <button className="w-full mt-6 bg-white border border-slate-200 text-slate-700 font-bold py-3 rounded-xl hover:border-blue-400 hover:text-blue-600 transition-colors shadow-sm">
+              Elegir Premium
+            </button>
+          </a>
+          </div>
+        </div>
+
+        {/* PLAN 3: VIP */}
+        <div className={styles.crystalCard}>
+          <div>
+            <h3 className={styles.crystalHeader}>VIP / Personalizado</h3>
+            <p className={styles.crystalText}>
+              Orientado a eventos de lujo. Experiencia tecnológica exclusiva, diseñada desde cero y sin plantillas.
+            </p>
+            <ul className={styles.featureList}>
+              <li className={styles.featureItem}>Diseño, paleta y animaciones 100% personalizados.</li>
+              <li className={styles.featureItem}>Dominio web propio por un año (ej. bodadeana.com).</li>
+              <li className={styles.featureItem}>Panel administrativo de invitados.</li>
+              <li className={styles.featureItem}>Pases digitales con códigos QR únicos para escanear.</li>
+              <li className={styles.featureItem}>Invitación inicial "Save the Date" pre-evento.</li>
+            </ul>
+          </div>
+          <div className={styles.crystalPriceContainer}>
+            <div className={styles.crystalPrice}>
+              <span className={styles.crystalCurrency}>$</span>2,500<span className={styles.crystalSuffix}>MXN</span>
+            </div>
+            <a
+            href="https://wa.me/525543079745?text=Hola%20MBS,%20me%20interesa%20la%20invitación%20VIP"
+            target="_blank"
+            rel="noopener noreferrer">
+            <button className="w-full mt-6 bg-slate-900 text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors shadow-md">
+              Cotizar Proyecto VIP
+            </button>
+          </a>
+            
+          </div>
+        </div>
+
       </div>
 
     </div>

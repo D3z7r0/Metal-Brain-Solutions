@@ -19,7 +19,6 @@ function RotatingCube({ position, size = 1, speed = 1 }: { position: [number, nu
     <Float speed={1} rotationIntensity={1} floatIntensity={1.5}>
       <mesh ref={meshRef} position={position}>
         <boxGeometry args={[size, size, size]} />
-        {/* Opacidad al 80% y color brillante para comprobar visibilidad */}
         <meshBasicMaterial color="#8b5cf6" wireframe transparent opacity={0.2} />      </mesh>
     </Float>
   );
@@ -33,7 +32,7 @@ export default function BackgroundCanvas() {
       left: 0,
       width: '100vw',
       height: '100vh',
-      zIndex: 10, /* ¡Cambio clave aquí! De -10 a 0 */
+      zIndex: 10, 
       pointerEvents: 'none'
     }}>
       <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>

@@ -145,3 +145,163 @@
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
 }
+
+
+
+
+/* --- CRYSTAL GLASS PRICING CARD --- */
+.crystalCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mantiene el header arriba y el precio abajo */
+  width: 100%;
+  max-width: 22rem;
+  min-height: 28rem;
+  padding: 2.5rem;
+  border-radius: 24px;
+  margin-top: 50px;
+  
+  /* Efecto Crystal: Gradiente diagonal muy sutil y bordes asimétricos para simular luz */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  
+  /* Bisel del cristal brillante en top/left */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  
+  /* Sombra interna para el grosor del cristal y sombra externa profunda */
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+    
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.crystalCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 1),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.3),
+    0 30px 60px rgba(59, 130, 246, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.crystalHeader {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.crystalText {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.crystalPriceContainer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06); /* Línea divisoria muy sutil */
+}
+
+.crystalPrice {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #0f172a;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  line-height: 1;
+}
+
+.crystalCurrency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6; /* Acento azul */
+  margin-top: 0.25rem;
+}
+
+.crystalSuffix {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+
+
+
+
+
+/* --- GRID DE PRECIOS --- */
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 76rem;
+  margin: 4rem auto;
+  align-items: stretch; /* Asegura que todas las tarjetas midan lo mismo */
+}
+
+/* --- ESTILOS DE LA LISTA Y BULLETS --- */
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featureItem {
+  position: relative;
+  padding-left: 2rem;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* El Bullet Personalizado (Círculo con Check y Gradiente) */
+.featureItem::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.15rem; /* Alineación fina con la primera línea de texto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 900;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+}
+
+/* Un badge opcional para resaltar el plan más vendido */
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  right: 2rem;
+  background: linear-gradient(135deg, #f97316, #f59e0b);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+}
