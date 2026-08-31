@@ -34,8 +34,8 @@ export default function Header() {
           <Image src="/Logo_MBS.png" width={100} height={100} alt="Logo_MBS" className="h-auto w-auto" priority />
         </Link>
         <nav className="hidden md:flex gap-8 text-sm font-semibold tracking-wide text-slate-600">
-          <Link href="/#servicios" className="hover:text-blue-500 transition-colors">Servicios</Link>
-          <Link href="/#metodologia" className="hover:text-purple-500 transition-colors">Metodología</Link>
+          <Link href="/websites" className="hover:text-blue-500 transition-colors">Páginas Web</Link>
+          <Link href="/database" className="hover:text-purple-500 transition-colors">Bases de Datos</Link>
           <Link href="/invitaciones" className="hover:text-orange-500 transition-colors">Invitaciones</Link>
         </nav>
       </div>

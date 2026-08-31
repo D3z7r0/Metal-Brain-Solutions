@@ -57,7 +57,7 @@ export default function Home() {
                   Desde gestores dinámicos en WordPress para marketing, SEO, GEO y Business Intelligence con Google Analytics, hasta aplicaciones web robustas de alto rendimiento con Next.js.
                 </p>
                 <div className="flex justify-end">
-                  <Link href="#servicios" className={styles.btnSecondary}>
+                  <Link href="/websites" className={styles.btnSecondary}>
                     Ver Servicios
                   </Link>
                 </div>
@@ -72,7 +72,7 @@ export default function Home() {
                   Si todavía manejas tu información en Excel probablemente necesites una base de datos. Estructuras adaptables, seguras y diseñadas a la medida del volumen de tu información.
                 </p>
                 <div className="w-full flex justify-end mt-auto">
-                  <Link href="/invitaciones" className={styles.btnSecondary}>
+                  <Link href="/database" className={styles.btnSecondary}>
                     Ver Soluciones
                   </Link>
                 </div>
