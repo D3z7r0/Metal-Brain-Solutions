@@ -73,18 +73,18 @@ export default function BasesDeDatosPage() {
       {/* DIFERENCIADOR: BD + DASHBOARD */}
       <section className={styles.differentiatorBanner}>
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-block bg-blue-500/20 border border-blue-400/30 text-blue-300 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider mb-6">
+        <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-600 font-bold px-4 py-2 rounded-full text-sm mb-6 uppercase tracking-wider">
             Nuestra Ventaja Competitiva
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">
             No solo vendemos datos invisibles. <br/> <span className="text-blue-400">Entregamos el control total.</span>
           </h2>
-          <p className="text-slate-300 text-lg md:text-xl font-medium leading-relaxed mb-10">
+          <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-10">
             Una base de datos es inútil si no puedes verla. Empaquetamos nuestra arquitectura con un <strong>Panel Administrativo en Tiempo Real</strong> diseñado a la medida. Visualiza KPIs, filtra reportes y gestiona tu inventario desde un navegador, sin tocar una sola línea de código SQL.
           </p>
           <a 
             href="#servicios"
-            className="inline-flex items-center justify-center bg-white text-slate-900 font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-8 py-4 rounded-xl shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(59,130,246,0.4)] transition-all"
           >
             Ver Servicios Técnicos
           </a>
