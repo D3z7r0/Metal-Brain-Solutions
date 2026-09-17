@@ -18,7 +18,7 @@ export default function Home() {
       <BackgroundCanvas />
 
       <main>
-        {/* HERO SECTION */}
+        {/* HERO */}
         <section className="relative z-10 min-h-[calc(100vh-80px)] flex flex-col justify-center items-start max-w-7xl mx-auto px-6">
           <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
             Sistemas Sólidos. <br />
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERVICES SECTION */}
+        {/* SERVICES */}
         <section id="servicios" className="relative z-20 py-24">          
           <div className="max-w-7xl mx-auto px-6">
             

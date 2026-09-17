@@ -85,16 +85,14 @@ export default function InvitacionesPage() {
 
       {/* CARRUSEL DE MUESTRAS (Auto-slide) */}
       <div className={styles.carouselContainer}>
-        {/* Renderizamos las imágenes 2 veces seguidas para lograr el ciclo infinito en CSS */}
         <div className={styles.carouselTrack}>
           {[...carouselImages, ...carouselImages].map((imgSrc, index) => (
             <div key={index} className={styles.carouselSlide}>
               <Image 
                 src={imgSrc} 
-                alt={`Muestra de invitación digital ${index + 1}`} 
+                alt={`Muestra de invitación digital con diseño interactivo y confirmación RSVP ${index + 1}`} 
                 fill 
                 style={{ objectFit: 'cover' }}
-                /* Asegúrate de tener imágenes de prueba en tu carpeta /public */
               />
             </div>
           ))}

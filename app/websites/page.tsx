@@ -41,7 +41,7 @@ export default function DesarrolloWebPage() {
             <div className={styles.projectImagePlaceholder}>
               <Image 
                 src={'/kim.png'} 
-                alt={'kim Image'} 
+                alt={'Muestra de página web hecha en WordPress con diseño responsive e interactivo para un restaurante de comida japonesa'} 
                 fill style={{ objectFit: 'cover' }}
               />
             </div>
@@ -61,7 +61,7 @@ export default function DesarrolloWebPage() {
             <div className={styles.projectImagePlaceholder}>
               <Image 
                 src={'/Daxa.png'} 
-                alt={'Daxa Image'} 
+                alt={'Muestra de página web hecha en WordPress con diseño responsive e interactivo para una empresa de ciberseguridad'} 
                 fill style={{ objectFit: 'cover' }}
               />
             </div>
@@ -81,7 +81,7 @@ export default function DesarrolloWebPage() {
             <div className={styles.projectImagePlaceholder}>
               <Image 
                 src={'/dash.png'} 
-                alt={'dash Image'} 
+                alt={'Muestra de panel de control hecho en Laravel con diseño responsive e interactivo'} 
                 fill style={{ objectFit: 'cover' }}
               />
             </div>
