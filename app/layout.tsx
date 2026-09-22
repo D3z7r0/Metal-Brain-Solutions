@@ -39,4 +39,7 @@ export const metadata: Metadata = {
     locale: 'es_MX',
     type: 'website',
   },
+  verification: {
+    google: 'dMMMudAznRDSg9FAw8c30cpuLENxWirdc5sJ-VBWKnw',
+  },
 };
