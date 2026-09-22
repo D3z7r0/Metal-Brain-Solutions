@@ -54,7 +54,7 @@ export default function Home() {
                 <div className={styles.glassIcon}>01</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Páginas Web</h3>
                 <p className="text-slate-500 text-sm leading-relaxed ">
-                  Desde gestores dinámicos en WordPress para marketing, SEO, GEO y Business Intelligence con Google Analytics, hasta aplicaciones web robustas de alto rendimiento con Next.js.
+                  Desde gestores dinámicos en WordPress para marketing, SEO y Business Intelligence con Google Analytics, hasta aplicaciones web robustas de alto rendimiento con Next.js.
                 </p>
                 <div className="flex justify-end">
                   <Link href="/websites" className={styles.btnSecondary}>
